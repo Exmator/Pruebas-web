@@ -4,6 +4,7 @@ import java.util.Arrays;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -13,6 +14,7 @@ public class HomeController {
     public String HOME() {
         return "index";
     }
+
     @GetMapping("/groceries")
     public String GROCERIES(Model model) {
         model.addAttribute("features", Arrays.asList(
@@ -25,5 +27,11 @@ public class HomeController {
             "1 kg of oranges"
         ));
         return "groceries";
+    }
+
+    @GetMapping("/age")
+    public String AGE(@RequestParam(name = "years", required = false, defaultValue = "0") Integer years, Model model2) {
+        model2.addAttribute("years", years);
+        return "age";
     }
 }
