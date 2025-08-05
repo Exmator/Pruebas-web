@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Groceries</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Groceries List</h1>
+    <ul>
+        <!-- Creates a for loop that iterates over the features list and displays each item -->
+        <li th:each="item : ${features}" th:text="${item}">Item</li>
+    </ul>
+</body>
+</html>
